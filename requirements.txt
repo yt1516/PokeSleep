@@ -6,3 +6,4 @@ oauth2client
 bokeh
 pyowm
 pokedex.py
+gunicorn
