@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+    <title>Sleep Monitor</title>
+    <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-1.4.0.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-1.4.0.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-1.4.0.min.css" type="text/css">
+
+  </head>
+  <body>
+    <div align="center">
+
+
+    <h1>Live Weather Conditions</h1>
+      <table>
+    <tr>
+      <th>Temperature</th>
+      <th>Weather Status</th>
+      <th>Wind Speed</th>
+      <th>Atmospheric Pressure</th>
+      <th>Humidity</th>
+      <th>Cloud</th>
+    </tr>
+    <tr>
+      <td>{{ temp }}</td>
+      <td>{{ stat }}</td>
+      <td>{{ wind }}</td>
+      <td>{{ pressure }}</td>
+      <td>{{ humidity }}</td>
+      <td>{{ cloud }}</td>
+    </tr>
+  </table>
+
+    <h2>Number of sounds made between {{ day_bef }} and {{ day_sel }}</h2>
+    <form action="/">
+      <select name="dates">
+      	{% for feature in dates %}
+      		{% if feature == current_date %}
+      			<option selected value="{{ feature }}">{{ feature }}</option>
+      		{% else %}
+      			<option value="{{ feature }}">{{ feature }}</option>
+      		{% endif %}
+      	{% endfor %}
+      </select>
+      <input type="submit">
+
+
+    {{ the_div|safe }}
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-api-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-1.4.0.min.js"></script>
+    {{ the_script|safe }}
+
+    <h2>Number of sound made at {{ current_interval }} interval with {{ current_variable }}</h2>
+
+    <select name="intervals">
+    	{% for feature in intervals %}
+    		{% if feature == current_interval %}
+    			<option selected value="{{ feature }}">{{ feature }}</option>
+    		{% else %}
+    			<option value="{{ feature }}">{{ feature }}</option>
+    		{% endif %}
+    	{% endfor %}
+    </select>
+    <select name="variables">
+      {% for feature in variables %}
+    		{% if feature == current_variable %}
+    			<option selected value="{{ feature }}">{{ feature }}</option>
+    		{% else %}
+    			<option value="{{ feature }}">{{ feature }}</option>
+    		{% endif %}
+    	{% endfor %}
+    </select>
+    <input type="submit">
+    </form>
+
+    {{ script2|safe }}
+    {{ div2|safe }}
+
+    <h3> You made {{ trigger_num }} number of sound that night! </h3>
+    <h3> Which makes you a {{ pokemon_name }}! </h3>
+    <p> {{ pokemon_name }} description: {{ pokemon_des }} </p>
+    <img src={{ pokemon_url }} alt="pokemon" width="100" height="100">
+    </div>
+  </body>
+</html>
