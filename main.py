@@ -5,7 +5,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import timedelta
 from bokeh.models import (HoverTool, FactorRange, Plot, LinearAxis, Grid,
-                          Range1d)
+                          Range1d, Jitter)
 from bokeh.models.glyphs import VBar
 from bokeh.plotting import figure, show
 from bokeh.layouts import gridplot
@@ -112,6 +112,39 @@ def bar_line_plot(col1, col2, interval):                    # Keep col1 trigger 
     plot.xaxis.major_label_orientation = "vertical"
     return plot
 
+def sound_line(col1,col2,interval):
+    df1_resampled = col1.resample(interval).sum()
+    df2_resampled = col2.resample(interval).first()
+    df2_resampled = [float(d) for d in df2_resampled.values]
+    x_label = []
+    for i in range(len(df1_resampled.index)):
+        x_label.append(str(df1_resampled.index[i]))
+    plot = figure(plot_width=1100, plot_height=300, x_range = x_label,
+                  tools=['pan', 'wheel_zoom', 'box_zoom', 'reset', 'save', 'hover'],
+                  x_axis_label="Datetime", y_axis_label="Trigger Count")
+    plot.y_range = Range1d(min(df1_resampled)-1,max(df1_resampled)+1)
+    plot.extra_y_ranges = {col2.name: Range1d(start=min(df2_resampled)-1, end=max(df2_resampled)+1)}
+    plot.add_layout(LinearAxis(y_range_name=col2.name, axis_label=col2.name), 'right')
+    plot.circle(x_label,df1_resampled,color='blue',legend='Trigger Count')
+    plot.line(x_label,df2_resampled,y_range_name=col2.name,color='red',legend=col2.name)
+    plot.xaxis.major_label_orientation = "vertical"
+    return plot
+
+def sound_freq(df):
+    x_list = []
+    y_list = []
+    for i in range(len(df)):
+        x_list.append(df.index[i])
+        y_list.append(df['Trigger bool'][i])
+
+    p = figure(plot_width=1100, plot_height=300, x_axis_type='datetime')
+
+    data = ColumnDataSource(dict(x=x_list,y=y_list))
+
+    p.circle(x = "x", y={'field':"y",'transform': Jitter(width=0.1)}, source=data, alpha = 0.5)
+    p.xaxis[0].formatter.days = ['%m/%d']
+    return p
+
 def get_pokemon(trigger_num):
     from pokedex import pokedex
     pokedex = pokedex.Pokedex(version='v1', user_agent='ExampleApp (https://example.com, v2.0.1)')
@@ -188,7 +221,8 @@ def master():
     mm = date[2:4]
     yy = date[4:9]
 
-    script, div = components(room_temp_sound_plot)
+    #script, div = components(room_temp_sound_plot)
+    script, div = components(sound_freq(sound_df))
     name, description, url = get_pokemon(trig_num)
     stat, temp, wind, pressure, humidity, cloud = get_outside_temperature()
     date_formatted = datetime(year=int(yy),month=int(mm),day=int(dd))
