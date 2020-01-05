@@ -72,3 +72,13 @@ def get_outside_temperature():
     cloud = w.get_clouds()
     stat = w.get_status()
     return stat, temp, wind, pressure, humidity, cloud
+
+def sleep_tip():
+    tips = ['Put your phone away, bedroom is for sleeping',
+    'Music stop, Lights off, Temperature Down',
+    'Stop thinking about sleep',
+    'Go eat some rice cakes',
+    'Stop drinking too much',
+    'Maybe you should to do some exercise',
+    'Try not to sleep in the afternoon again']
+    return tips[randint(0,6)]

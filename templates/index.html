@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <!-- Required meta tags -->
@@ -11,7 +12,11 @@
         <link rel="stylesheet" type="text/css" href="../static/css/trial.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
-        <title>This is PokeSleep</title>
+        {% if title %}
+          <title>{{ title }} - PokeSleep</title>
+        {% else %}
+          <title>Welcome to PokeSleep</title>
+        {% endif %}
 
     </head>
 
@@ -21,7 +26,7 @@
           <nav>
             <ul>
               <li>
-                <b href="/home"> PokeSleep </b>
+                <b class="pokefont" href="/home"> PokeSleep </b>
               </li>
               <li>
                 <a href="/home"> Home </a>
@@ -38,5 +43,50 @@
             </ul>
           </nav>
         </header>
+
+        <div class="container">
+          <h1>Home</h1>
+        </p1>Welcome to PokeSleep</p1>
+
+          <link rel="stylesheet" href="/static/css/trial.css">
+
+          <div class="split left">
+            <div class="centered">
+              <img src={{ url }} alt="LightDogsLogo" border="5">
+              <h2 class="pokefont">{{ name }}</h2>
+              <p class="textfont">{{ description }}</p>
+            </div>
+          </div>
+
+          <div class="split right">
+            <div class="block1">
+              <p class="textlarge">{{ tip }}</p>
+            </div>
+            <div class="block2">
+              <h4 class="textfont"> Local Weather Condition </h4>
+              <table>
+            <tr>
+              <th>Temperature</th>
+              <th>Weather Status</th>
+              <th>Wind Speed</th>
+              <th>Atmospheric Pressure</th>
+              <th>Humidity</th>
+              <th>Cloud</th>
+            </tr>
+            <tr>
+              <td>{{ temp }}</td>
+              <td>{{ stat }}</td>
+              <td>{{ wind }}</td>
+              <td>{{ pressure }}</td>
+              <td>{{ humidity }}</td>
+              <td>{{ cloud }}</td>
+            </tr>
+          </table>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
     </body>
 </html>

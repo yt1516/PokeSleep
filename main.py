@@ -4,15 +4,25 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from bokeh.embed import components
 from flask import Flask, render_template, request
+from random import randint
 
 from utils import time_select,normalise,scatter_line_plot,bar_line_plot,sound_line,sound_freq
-from fetch import get_sound,get_room_temp,get_outside_temp,get_pokemon,get_outside_temperature
+from fetch import get_sound,get_room_temp,get_outside_temp,get_pokemon,get_outside_temperature,sleep_tip
 
 app = Flask(__name__)
 
 #@app.route("/<date>/", methods=['GET', 'POST'])
-@app.route('/')
+@app.route('/', methods=['GET'])
 #def master(date):
+@app.route('/home/', methods=['GET'])
+def home():
+    name, description, url = get_pokemon(randint(1,600))
+    tip = sleep_tip()
+    stat, temp, wind, pressure, humidity, cloud = get_outside_temperature()
+    return render_template('index.html', title='Home', name=name, description=description, url = url, tip=tip,
+    stat=stat, temp=temp, wind=wind, pressure=pressure, humidity=humidity, cloud=cloud)
+
+@app.route('/legends/', methods=['GET'])
 def master():
 
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']

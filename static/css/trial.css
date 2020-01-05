@@ -1,7 +1,7 @@
 nav{
   width: 100vw;
   height: 100px;
-  background-color: #A9A9A9
+  background-color: #b29376
 }
 ul{
   margin: 0;
@@ -18,15 +18,40 @@ a{
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   text-decoration: none;
-  color: #F0FFFF;
-  padding-top: 30px;
-  padding-bottom: 40px;
+  color: #e3d7c9;
+  padding-top: 15px;
+  padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
   display: block;
-  font-size: 20px;
+  font-size: 30px;
 }
-b{
+
+a:hover{
+  background-color: #808080;
+  text-decoration: none;
+  color: #DCDCDC;
+}
+
+table {
+  font-family: 'Lato', sans-serif;
+  border-collapse: collapse;
+  margin: 1vw;
+  width: 20vw;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 2px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.pokefont {
   text-decoration: none;
   font-family: 'Acme', sans-serif;
   color: black;
@@ -37,11 +62,92 @@ b{
   font-size: 55px;
 }
 
-a:hover{
-  background-color: #808080;
+.textlarge {
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
   text-decoration: none;
-  color: #DCDCDC;
+  color: black;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+  font-size: 40px;
+  color: #e3d7c9
 }
-b:hover{
-  color: #4169E1;
+
+.textfont {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+  font-size: 25px;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  margin-top: 100px;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #fbaa1d;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #1f5b70;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.centermid {
+  position: absolute;
+  margin-top: 40%;
+  left: 50%;
+  height: 50%
+  transform: translate(-10%, -10%);
+  text-align: center;
+  margin-bottom: 10vw;
+}
+.block1 {
+  position: absolute;
+  top: 10vw;
+  left: 50%;
+  margin-bottom: 10vw;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+.block2 {
+  position: absolute;
+  top: 30vw;
+  left: 50%;
+  margin-left: 1vw;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  background-color: #e3d7c9
+}
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 300px;
+  height: 300px;
+  border-radius: 1%;
 }
