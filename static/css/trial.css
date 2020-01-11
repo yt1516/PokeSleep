@@ -1,10 +1,9 @@
 nav{
   width: 100vw;
-  height: 100px;
+  height: 90px;
   background-color: #b29376
 }
 ul{
-  margin: 0;
   padding: 0;
   display: inline-flex;
 }
@@ -19,35 +18,40 @@ a{
   font-weight: 700;
   text-decoration: none;
   color: #e3d7c9;
-  padding-top: 15px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  display: block;
+  transform: translate(0%,50%);
+  text-align: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  display:  block;
   font-size: 30px;
 }
 
 a:hover{
-  background-color: #808080;
+  background-color: #e3d7c9;
   text-decoration: none;
-  color: #DCDCDC;
+  display: block;
+  width: 100%;
 }
 
 table {
   font-family: 'Lato', sans-serif;
+  font-size: 20px;
   border-collapse: collapse;
-  margin: 1vw;
-  width: 20vw;
+  width: 45vw;
+  border-radius: 5%;
+  border-color: transparent;
+  margin-bottom: 20px;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
+th {
+  text-align: center;
   padding: 2px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+td {
+  font-size: 20px;
+  text-align: center;
+  padding: 2px;
 }
 
 
@@ -55,11 +59,15 @@ tr:nth-child(even) {
   text-decoration: none;
   font-family: 'Acme', sans-serif;
   color: black;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 20px;
   font-size: 55px;
+}
+
+.pokefont_small {
+  font-family: 'Acme', sans-serif;
+  color: black;
+  margin-top: 20px;
+  font-size: 40px;
 }
 
 .textlarge {
@@ -81,19 +89,32 @@ tr:nth-child(even) {
   font-weight: 400;
   text-decoration: none;
   color: black;
-  padding-top: 30px;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
   display: block;
   font-size: 25px;
 }
 
+.yellowback {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  margin-top: 90px;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  background-color: #fbaa1d
+}
+
 .split {
-  height: 100%;
-  width: 50%;
-  position: absolute;
-  margin-top: 100px;
+  height: 100vh;
+  width: 50vw;
+  position: fixed;
+  margin-top: 90px;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
@@ -114,40 +135,89 @@ tr:nth-child(even) {
 /* If you want the content centered horizontally and vertically */
 .centered {
   position: absolute;
-  top: 50%;
+  top: 8vh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   text-align: center;
+}
+
+.center_top {
+  position: absolute;
+  left: 50%;
+  width: 80vw;
+  text-align: center;
+  transform: translate(-50%,0%);
 }
 .centermid {
   position: absolute;
   margin-top: 40%;
   left: 50%;
-  height: 50%
+  height: 50%;
   transform: translate(-10%, -10%);
   text-align: center;
   margin-bottom: 10vw;
 }
 .block1 {
   position: absolute;
-  top: 10vw;
+  top: 8vh;
   left: 50%;
-  margin-bottom: 10vw;
+  margin-bottom: 3vh;
   text-align: center;
   transform: translate(-50%, 0);
 }
 .block2 {
   position: absolute;
-  top: 30vw;
+  top: 30vh;
   left: 50%;
-  margin-left: 1vw;
   text-align: center;
-  transform: translate(-50%, -50%);
-  background-color: #e3d7c9
+  transform: translate(-50%, 0);
+  background-color: #e3d7c9;
+  border-radius: 5px;
+}
+
+.center_top img {
+  border-radius: 1%;
 }
 /* Style the image inside the centered container, if needed */
 .centered img {
   width: 300px;
   height: 300px;
   border-radius: 1%;
+}
+
+.backplate {
+  background-color: #e3d7c9;
+  width :100vw;
+  height: 100vh;
+}
+.spread {
+  position: absolute;
+  margin-top: 6vh;
+  left: 50%;
+  transform: translate(-50%, -5vh);
+  text-align: center;
+}
+.spread_img {
+  width: 300px;
+  height: 300px;
+  border-radius: 1%;
+  padding: 1vh;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+.spread:hover .overlay {
+  opacity: 1;
+}
+.pokemon_name {
+
 }

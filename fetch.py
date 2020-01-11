@@ -53,13 +53,20 @@ def get_outside_temp(outside):
     out_temp = out_temp.set_index(pd.to_datetime(out_temp['Datetime']))
     return out_temp
 
-def get_pokemon(trigger_num):
+def get_pokemon_random(idx):
     p_dex = pokedex.Pokedex(version='v1', user_agent='ExampleApp (https://example.com, v2.0.1)')
-    pokemon = p_dex.get_pokemon_by_number(trigger_num)
+    pokemon = p_dex.get_pokemon_by_number(idx)
     name = pokemon[0]['name']
     description = pokemon[0]['description']
     url = pokemon[0]['sprite']
     return name, description, url
+
+def get_pokemon(poke_data):
+    dates=poke_data.col_values(1)
+    names=poke_data.col_values(2)
+    descrips=poke_data.col_values(3)
+    urls=poke_data.col_values(4)
+    return dates, names, descrips, urls
 
 def get_outside_temperature():
     owm = pyowm.OWM('2a9f05a9458a49c59d610b54ed02a840')

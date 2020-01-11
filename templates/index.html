@@ -4,9 +4,10 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta http-equiv="cache-control" content="no-cache">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!--Custom CSS in main.css-->
         <link rel="stylesheet" type="text/css" href="../static/css/trial.css">
@@ -22,7 +23,7 @@
 
     <body>
         <!--Header Bar-->
-        <header class="site-header">
+        <header>
           <nav>
             <ul>
               <li>
@@ -38,21 +39,20 @@
                 <a href="/pokemon"> Pokemon </a>
               </li>
               <li>
-                <a href="/legends"> Legends </a>
+                <a href="/insight"> Insight </a>
               </li>
             </ul>
           </nav>
         </header>
 
         <div class="container">
-          <h1>Home</h1>
-        </p1>Welcome to PokeSleep</p1>
 
           <link rel="stylesheet" href="/static/css/trial.css">
 
           <div class="split left">
             <div class="centered">
-              <img src={{ url }} alt="LightDogsLogo" border="5">
+              <p class="pokefont_small"> Random Pokemon Profile </p>
+              <img src={{url}} alt="LightDogsLogo" border="5">
               <h2 class="pokefont">{{ name }}</h2>
               <p class="textfont">{{ description }}</p>
             </div>
@@ -65,27 +65,26 @@
             <div class="block2">
               <h4 class="textfont"> Local Weather Condition </h4>
               <table>
-            <tr>
-              <th>Temperature</th>
-              <th>Weather Status</th>
-              <th>Wind Speed</th>
-              <th>Atmospheric Pressure</th>
-              <th>Humidity</th>
-              <th>Cloud</th>
-            </tr>
-            <tr>
-              <td>{{ temp }}</td>
-              <td>{{ stat }}</td>
-              <td>{{ wind }}</td>
-              <td>{{ pressure }}</td>
-              <td>{{ humidity }}</td>
-              <td>{{ cloud }}</td>
-            </tr>
-          </table>
+                <tr>
+                  <th>Temperature</th>
+                  <th>Weather Status</th>
+                  <th>Wind Speed</th>
+                  <th>Atmospheric Pressure</th>
+                  <th>Humidity</th>
+                  <th>Cloud</th>
+                </tr>
+                <tr>
+                  <td>{{ temp }}</td>
+                  <td>{{ stat }}</td>
+                  <td>{{ wind }}</td>
+                  <td>{{ pressure }}</td>
+                  <td>{{ humidity }}</td>
+                  <td>{{ cloud }}</td>
+                </tr>
+              </table>
             </div>
             </div>
           </div>
-        </div>
 
         <hr>
     </body>

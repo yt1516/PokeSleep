@@ -7,7 +7,7 @@ from flask import Flask, render_template, request
 from random import randint
 
 from utils import time_select,normalise,scatter_line_plot,bar_line_plot,sound_line,sound_freq
-from fetch import get_sound,get_room_temp,get_outside_temp,get_pokemon,get_outside_temperature,sleep_tip
+from fetch import get_sound,get_room_temp,get_outside_temp,get_pokemon,get_pokemon_random,get_outside_temperature,sleep_tip
 
 app = Flask(__name__)
 
@@ -16,13 +16,27 @@ app = Flask(__name__)
 #def master(date):
 @app.route('/home/', methods=['GET'])
 def home():
-    name, description, url = get_pokemon(randint(1,600))
+    name, description, url = get_pokemon_random(randint(1,808))
     tip = sleep_tip()
     stat, temp, wind, pressure, humidity, cloud = get_outside_temperature()
     return render_template('index.html', title='Home', name=name, description=description, url = url, tip=tip,
     stat=stat, temp=temp, wind=wind, pressure=pressure, humidity=humidity, cloud=cloud)
 
-@app.route('/legends/', methods=['GET'])
+@app.route('/about/', methods=['GET'])
+def about():
+    return render_template('about.html', title='About')
+
+@app.route('/pokemon/', methods=['GET'])
+def pokemon():
+    scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('SIOTfinal.json', scope)
+    client = gspread.authorize(creds)
+    poke_data = client.open('pokemon').sheet1
+    dates, names, descrips, urls = get_pokemon(poke_data)
+    return render_template('pokemon.html', title="Pokemon", dates=dates, names=names, descrips=descrips,
+    urls=urls)
+
+@app.route('/insight/', methods=['GET'])
 def master():
 
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
@@ -76,7 +90,6 @@ def master():
 
     #script, div = components(room_temp_sound_plot)
     script, div = components(sound_freq(sound_df))
-    name, description, url = get_pokemon(trig_num)
     stat, temp, wind, pressure, humidity, cloud = get_outside_temperature()
     date_formatted = datetime(year=int(yy),month=int(mm),day=int(dd))
     today = str(date_formatted)
@@ -93,8 +106,8 @@ def master():
     script2,div2 = components(bar_line_plot(sound_date['Trigger bool'],col2,
     current_interval))
 
-    return render_template('chart.html', day_sel=today, day_bef=yesterday, the_div=div, the_script=script,
-    pokemon_url=url, pokemon_name=name, pokemon_des=description, stat=stat, temp=temp, wind=wind,
+    return render_template('insight.html', day_sel=today, day_bef=yesterday, the_div=div, the_script=script,
+    stat=stat, temp=temp, wind=wind,
     pressure=pressure, humidity=humidity, cloud=cloud, script2=script2, div2=div2, intervals=intervals,
     current_interval=current_interval, current_variable = current_variable, variables=variables,
     dates=dates, current_date=current_date, trigger_num=trig_num)

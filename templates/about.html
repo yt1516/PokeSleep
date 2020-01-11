@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="cache-control" content="no-cache">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!--Custom CSS in main.css-->
+        <link rel="stylesheet" type="text/css" href="../static/css/trial.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+        {% if title %}
+          <title>{{ title }} - PokeSleep</title>
+        {% else %}
+          <title>Welcome to PokeSleep</title>
+        {% endif %}
+
+    </head>
+
+    <body>
+        <!--Header Bar-->
+        <header>
+          <nav>
+            <ul>
+              <li>
+                <b class="pokefont" href="/home"> PokeSleep </b>
+              </li>
+              <li>
+                <a href="/home"> Home </a>
+              </li>
+              <li>
+                <a href="/about"> About </a>
+              </li>
+              <li>
+                <a href="/pokemon"> Pokemon </a>
+              </li>
+              <li>
+                <a href="/insight"> Insight </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <div class="container">
+          <link rel="stylesheet" href="/static/css/trial.css">
+
+          <div class="yellowback">
+            <div class="center_top">
+              <p class="pokefont_small"> What Am I? </p>
+              <p class="textfont"> PokeSleep is a non-intrusive IoT device that assigns you your very own pokemon based on
+                your sleep quality.</p>
+
+              <p class="pokefont_small"> How Do I Work? </p>
+              <p class="textfont"> When a sound is made, the sound
+                sensor records the timestamp of the sound and gets uploaded to a Google Sheet database. Less number of sounds
+                made during the night means better sleep quality. It also records
+                the temperature and humidity of the sleeping environment so you can see how your sleep quality is affected by these
+                factors.</p>
+              <img src= "/static/Asset 3.png" alt="system graph" border="1">
+              <br>
+              <br>
+              <p class="pokefont_small"> How To Get More Pokemon? </p>
+              <p class="textfont"> One Pokemon is collected per day, based on the sleep quality of the night.
+                There are legendary Pokemons which have a lower chance of being collected than normal Pokemons.
+                The chance of getting a legendary pokemon increases permanently if the sleep quality of the night
+                is better than the average, but it can also decrease if it is worse than the average.</p>
+            </div>
+
+          </div>
+
+          </div>
+
+        <hr>
+    </body>
+</html>

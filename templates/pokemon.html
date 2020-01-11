@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Custom CSS in main.css-->
+    <link rel="stylesheet" type="text/css" href="../static/css/pokemon.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+    {% if title %}
+      <title>{{ title }} - PokeSleep</title>
+    {% else %}
+      <title>Welcome to PokeSleep</title>
+    {% endif %}
+
+</head>
+
+<body>
+    <!--Header Bar-->
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <b class="pokefont" href="/home"> PokeSleep </b>
+          </li>
+          <li>
+            <a href="/home"> Home </a>
+          </li>
+          <li>
+            <a href="/about"> About </a>
+          </li>
+          <li>
+            <a href="/pokemon"> Pokemon </a>
+          </li>
+          <li>
+            <a href="/insight"> Insight </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  <div id="imagesMain">
+    <h1 class="pokefont_small"> Current Pokemon Collection </h1>
+    {% for url in urls %}
+      <div class="imagebox">
+        <img src= {{url}}>
+        <div class="caption">
+          <div class="name">
+            {{ names[loop.index0] }}
+          </div>
+          <div class="description">
+            {{ descrips[loop.index0] }}
+            <p class="date"> Caught On {{ dates[loop.index0] }} </p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>

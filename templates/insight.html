@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="cache-control" content="no-cache">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!--Custom CSS in main.css-->
+		<link rel="stylesheet" type="text/css" href="../static/css/pokemon.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+		{% if title %}
+			<title>{{ title }} - PokeSleep</title>
+		{% else %}
+			<title>Welcome to PokeSleep</title>
+		{% endif %}
+
+</head>
+<body>
+		<!--Header Bar-->
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<b class="pokefont" href="/home"> PokeSleep </b>
+					</li>
+					<li>
+						<a href="/home"> Home </a>
+					</li>
+					<li>
+						<a href="/about"> About </a>
+					</li>
+					<li>
+						<a href="/pokemon"> Pokemon </a>
+					</li>
+					<li>
+						<a href="/insight"> Insight </a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+    <div align="center">
+
+    <h2>Number of sounds made between {{ day_bef }} and {{ day_sel }}</h2>
+    <form action="/">
+      <select name="dates">
+      	{% for feature in dates %}
+      		{% if feature == current_date %}
+      			<option selected value="{{ feature }}">{{ feature }}</option>
+      		{% else %}
+      			<option value="{{ feature }}">{{ feature }}</option>
+      		{% endif %}
+      	{% endfor %}
+      </select>
+      <input type="submit">
+
+    {{ the_div|safe }}
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-api-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-1.4.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-1.4.0.min.js"></script>
+    {{ the_script|safe }}
+
+    <h2>Number of sound made at {{ current_interval }} interval with {{ current_variable }}</h2>
+
+    <select name="intervals">
+    	{% for feature in intervals %}
+    		{% if feature == current_interval %}
+    			<option selected value="{{ feature }}">{{ feature }}</option>
+    		{% else %}
+    			<option value="{{ feature }}">{{ feature }}</option>
+    		{% endif %}
+    	{% endfor %}
+    </select>
+    <select name="variables">
+      {% for feature in variables %}
+    		{% if feature == current_variable %}
+    			<option selected value="{{ feature }}">{{ feature }}</option>
+    		{% else %}
+    			<option value="{{ feature }}">{{ feature }}</option>
+    		{% endif %}
+    	{% endfor %}
+    </select>
+    <input type="submit">
+    </form>
+
+    {{ script2|safe }}
+    {{ div2|safe }}
+
+    <h3> You made {{ trigger_num }} number of sound that night! </h3>
+    </div>
+  </body>
+</html>
