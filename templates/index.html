@@ -13,11 +13,6 @@
         <link rel="stylesheet" type="text/css" href="../static/css/trial.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
-        {% if title %}
-          <title>{{ title }} - PokeSleep</title>
-        {% else %}
-          <title>Welcome to PokeSleep</title>
-        {% endif %}
 
     </head>
 
@@ -37,6 +32,9 @@
               </li>
               <li>
                 <a href="/pokemon"> Pokemon </a>
+              </li>
+              <li>
+                <a href="/timeline"> Timeline </a>
               </li>
               <li>
                 <a href="/insight"> Insight </a>
@@ -63,7 +61,7 @@
               <p class="textlarge">{{ tip }}</p>
             </div>
             <div class="block2">
-              <h4 class="textfont"> Local Weather Condition </h4>
+              <h4 class="textfont"> Chelmsford </h4>
               <table>
                 <tr>
                   <th>Temperature</th>

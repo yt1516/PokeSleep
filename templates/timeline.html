@@ -48,7 +48,7 @@
 
     <h2 class="pokefont_small"> select a date, interval, and data category from below: </h2>
     <br>
-    <form action="/insight">
+    <form action="/timeline">
       <select name="dates">
       	{% for feature in dates %}
       		{% if feature == current_date %}
@@ -79,14 +79,27 @@
       <input type="submit", value="Update">
       </form>
     <br><br><br>
-    <h2 class="plot_heading"> sound number and {{ current_variable }} at {{ current_interval }}
-			on {{ current_date }}</h2>
+    <h2 class="plot_heading"> sound number plot on {{ current_date }}</h2>
     {{ s1|safe }}
     {{ div1|safe }}
     <br><br>
-    <h2 class="plot_heading"> 1-day rolling correlation</h2>
+    <h2 class="plot_heading"> {{ current_variable }} plot on {{ current_date }}</h2>
     {{ s2|safe }}
     {{ div2|safe }}
+    <br><br>
+    <h2>historical data at {{ current_interval }} interval up to {{ current_date }}</h2>
+    <br>
+    <h2 class="plot_heading"> sound number plot</h2>
+    {{ s3|safe }}
+    {{ div3|safe }}
+    <br><br>
+    <h2 class="plot_heading"> room temperature plot</h2>
+    {{ s4|safe }}
+    {{ div4|safe }}
+    <br><br>
+    <h2 class="plot_heading"> atmospheric pressure plot</h2>
+    {{ s5|safe }}
+    {{ div5|safe }}
     </div>
   </body>
 </html>
