@@ -163,5 +163,6 @@ td {
   max-height: 30vh;
   width: auto;
   height: auto;
+  transform: translate(-5vw,0);
   border-radius: 1%;
 }
