@@ -67,7 +67,7 @@ td {
   font-family: 'Acme', sans-serif;
   color: black;
   margin-top: 20px;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .textlarge {
@@ -94,7 +94,20 @@ td {
   padding-left: 30px;
   padding-right: 30px;
   display: block;
-  font-size: 25px;
+  font-size: 20px;
+}
+
+.textfont_sleep {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: #e3d7c9;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: block;
+  font-size: 20px;
 }
 
 .split {
@@ -120,7 +133,7 @@ td {
 
 .centered {
   position: absolute;
-  top: 8vh;
+  top: 1vh;
   left: 50%;
   transform: translate(-50%, 0);
   text-align: center;
@@ -145,7 +158,10 @@ td {
 }
 
 .centered img {
-  width: 300px;
-  height: 300px;
+  display:block;
+  max-width: 30vw;
+  max-height: 30vh;
+  width: auto;
+  height: auto;
   border-radius: 1%;
 }
