@@ -1,7 +1,6 @@
 import pandas as pd
 from datetime import datetime, timedelta
-from bokeh.models import Plot, LinearAxis,Range1d, Jitter
-from bokeh.models.glyphs import VBar
+from bokeh.models import Plot, LinearAxis,Range1d
 from bokeh.plotting import figure, show
 from bokeh.embed import components
 from bokeh.models.sources import ColumnDataSource
