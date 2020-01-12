@@ -93,21 +93,6 @@ def sound_line(col1,col2,interval):
     plot.legend.location="bottom_left"
     return plot
 
-def sound_freq(df):
-    x_list = []
-    y_list = []
-    for i in range(len(df)):
-        x_list.append(df.index[i])
-        y_list.append(df['Trigger bool'][i])
-
-    p = figure(plot_width=1100, plot_height=300, x_axis_type='datetime')
-
-    data = ColumnDataSource(dict(x=x_list,y=y_list))
-
-    p.circle(x = "x", y={'field':"y",'transform': Jitter(width=0.1)}, source=data, alpha = 0.5)
-    p.xaxis[0].formatter.days = ['%m/%d']
-    return p
-
 def time_series_sound(col1, interval, title):
     col1_r = col1.resample(interval).sum()
     col1_sam = [float(d) for d in col1_r.values]
