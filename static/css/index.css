@@ -35,7 +35,7 @@ a:hover{
 
 table {
   font-family: 'Lato', sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   border-collapse: collapse;
   width: 45vw;
   border-radius: 5%;
@@ -49,7 +49,7 @@ th {
 }
 
 td {
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   padding: 2px;
 }
